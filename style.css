@@ -1,0 +1,36 @@
+body {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    background-color:powderblue;
+}
+
+button {
+    padding: 20px;
+    font-size: 24px;
+    display: block;
+    margin: 10px auto;
+}
+
+#container {
+    margin: 20px auto;
+    width: 480px;
+    height: 480px;
+    background-color: paleturquoise;
+    display: grid;
+    grid-template-columns: repeat(16, 30px);
+    grid-template-rows: repeat(16, 30px)
+}
+
+.single-div {
+    width: 30px;
+    height: 30px;
+    background-color: royalblue;
+    border: 1px white solid
+}
+
+.single-div-drawn {
+    width: 30px;
+    height: 30px;
+    background-color: rebeccapurple;
+}
