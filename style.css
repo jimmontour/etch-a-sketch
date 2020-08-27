@@ -3,27 +3,34 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color:black;
+    background: url(/img/background.jpg);
+    background-size: cover;
 }
 
 .button-container {
     display: flex;
     justify-content: center;
+    margin-top: 30px;
+
 }
 
 button {
-    padding: 20px;
+    padding: 15px 40px;
     font-size: 18px;
     margin:10px;
+    background-color: palegoldenrod;
+    border-radius: 25px;
 }
 
 #container {
-    margin: 20px auto;
+    margin: 0 auto 0 auto;
     width: 720px;
     height: 720px;
     background-color: #fff;
     display: grid;
     grid-template-columns: repeat(16, auto);
-    grid-template-rows: repeat(16, auto)
+    grid-template-rows: repeat(16, auto);
+    border: 10px solid black;
 }
 
 .single-div {
@@ -33,4 +40,14 @@ button {
 
 .single-div-drawn-black {
     background-color: black;
+}
+
+footer {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+footer a {
+    color: palegoldenrod;
 }
