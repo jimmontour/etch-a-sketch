@@ -1,38 +1,68 @@
-let singleDiv;
+const container = document.getElementById('container');
+const clearButton = document.getElementById('clear-grid');
+const defineButton = document.getElementById('define-grid');
+const colorButton = document.getElementById('color-grid');
+const blackButton = document.getElementById('black-grid');
+const singleDiv = document.getElementsByClassName('single-div')
+const drawBlackDiv = document.getElementsByClassName('single-div');
 
-// define a function to make and place a single div
-function createDiv() {
-    // create a div
-    singleDiv = document.createElement('div');
+let gridSize = 16;
 
-    // give it a class of single-div
-    singleDiv.classList.add('single-div');
+function drawBlackMarker() {
+    for (i = 0; i < drawBlackDiv.length; i++) {
+        drawBlackDiv[i].addEventListener('mouseover', function(e) {
+            this.style.backgroundColor = '';
+            this.classList.add('single-div-drawn-black');
+        })
+    };
+};
 
-    //add it to the container
-    document.getElementById('container').appendChild(singleDiv);
+function drawColorMarker() {
+    for (i = 0; i < drawBlackDiv.length; i++) {
+        drawBlackDiv[i].addEventListener('mouseover', function(e) {
+            this.classList.remove('single-div-drawn-black');
+            this.style.backgroundColor = '#' + Math.floor(Math.random() * 255);
+        })
+    };
+};
+
+function clearGridofMarker() {
+    for (i = 0; i < drawBlackDiv.length; i++) {
+        drawBlackDiv[i].classList.remove('single-div-drawn-black');
+        drawBlackDiv[i].style.backgroundColor = 'white';
+    }
+};
+
+function propagateBoard() {
+    for (i = 0; i < gridSize ** 2; i++) {
+        let singleDiv = document.createElement('div');
+        singleDiv.classList.add('single-div')
+        container.appendChild(singleDiv);
+    }
 }
 
-// loop the div creation process 256 times
-for (i = 0; i <= 255; i++) {
-    createDiv();
-}
+propagateBoard();
+drawBlackMarker();
 
-//Loop through an array of single-divs and add event listener
-let editableDivs = document.getElementsByClassName('single-div');
+clearButton.addEventListener('click', function(e) {
+    clearGridofMarker();
+});
 
-function drawRed() { 
-for (i = 0; i < editableDivs.length; i++) {
-    editableDivs[i].addEventListener('mouseover', function(event) {
-        event.target.style.backgroundColor = 'red';
-    })
-}};
+defineButton.addEventListener('click', function(e) {
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
+      }
+    gridSize = parseInt(prompt('How big do you want the grid? (1-64'));
+    propagateBoard();
+    container.style.gridTemplateColumns = `repeat(${gridSize}, auto)`;
+    container.style.gridTemplateRows = `repeat(${gridSize}, auto)`;
 
-drawRed();
+});
 
-// cleargrid button
-clearButton = document.getElementById('clear-grid');
+blackButton.addEventListener('click', function(e) {
+    drawBlackMarker();
+});
 
-clearButton.addEventListener('click', function(event) {
-    for (i = 0; i < editableDivs.length; i++) {
-    editableDivs[i].style.backgroundColor = 'royalblue'
-}})
+colorButton.addEventListener('click', function(e) {
+    drawColorMarker();
+});

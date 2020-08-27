@@ -2,35 +2,35 @@ body {
     margin: 0px;
     padding: 0;
     box-sizing: border-box;
-    background-color:powderblue;
+    background-color:black;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
 }
 
 button {
     padding: 20px;
-    font-size: 24px;
-    display: block;
-    margin: 10px auto;
+    font-size: 18px;
+    margin:10px;
 }
 
 #container {
     margin: 20px auto;
-    width: 480px;
-    height: 480px;
-    background-color: paleturquoise;
+    width: 720px;
+    height: 720px;
+    background-color: #fff;
     display: grid;
-    grid-template-columns: repeat(16, 30px);
-    grid-template-rows: repeat(16, 30px)
+    grid-template-columns: repeat(16, auto);
+    grid-template-rows: repeat(16, auto)
 }
 
 .single-div {
-    width: 30px;
-    height: 30px;
-    background-color: royalblue;
-    border: 1px white solid
+    background-color: white;
+    border: 1px lightgrey solid;
 }
 
-.single-div-drawn {
-    width: 30px;
-    height: 30px;
-    background-color: rebeccapurple;
+.single-div-drawn-black {
+    background-color: black;
 }
